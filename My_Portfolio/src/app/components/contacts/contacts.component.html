@@ -1,0 +1,79 @@
+
+
+<div class="d-flex min-vh-100 home-bg bg-color-white">
+    <!-- Left Side Contenet -->
+    <div class="flex-fill d-flex align-items-center justify-content-center  p-5">
+
+
+        <div class="flex gap-4 text-gray-700">
+            <a href="mailto:savansumbe@gmail.com" class="flex items-center gap-2 hover:text-blue-500 transition">
+                <lucide-icon name="mail" class="w-6 h-6"></lucide-icon>
+                <span>Email</span>
+                <p>savansumbe&#64;gmail.com</p>
+
+            </a>
+            <br>
+            <a href="tel:7058439168" class="flex items-center gap-2 hover:text-blue-500 transition">
+                <lucide-icon name="phone" class="w-6 h-6"></lucide-icon>
+                <span>Phone</span>
+                <p>7058439168</p>
+            </a>
+
+        </div>
+       
+           <div class="list-group shadow mt-4">
+            <a href="https://linkedin.com" target="_blank" class="list-group-item d-flex gap-3 py-3 align-items-center">
+                <img src="assets/images/Linkedin.png" width="32" height="32" alt="" class="rounded-circle flex-shrink-0">
+                <h3 class="mb-0">LinkedIn</h3>
+            </a>
+
+            <a href="https://github.com" target="_blank" class="list-group-item d-flex gap-3 py-3 align-items-center">
+                <img src="assets/images/github.png" width="32" height="32" alt="" class="rounded-circle flex-shrink-0">
+                <h3 class="mb-0">GitHub</h3>
+            </a>
+        </div>
+    
+    </div>
+
+
+    <!-- Right Side -->
+    <div class="flex-fill d-flex align-items-center justify-content-center bg-primary p-4">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div class="text-center mb-4">
+                        <h5>Send Me a Message</h5>
+                    </div>
+                    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group mb-3">
+                            <label>Name</label>
+                            <input type="text" class="form-control" formControlName="name">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Email</label>
+                            <input type="email" class="form-control" formControlName="email">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Message</label>
+                            <textarea class="form-control" formControlName="message" rows="5"></textarea>
+                        </div>
+                        <button type="submit" [disabled]="loading" class="btn btn-dark w-100 py-3 rounded-lg font-semibold">
+                            {{ loading ? 'Sending...' : 'Send Message' }}
+                        </button>
+
+                        <div *ngIf="successMessage" class="alert alert-success mt-3">
+            Message sent successfully! I will get back to you soon.
+        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+     <!-- Back Button
+<div class="text-center mt-4">
+    <button routerLink="/Home" class="btn btn-primary">Back</button>
+</div> -->

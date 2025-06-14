@@ -1,0 +1,13 @@
+h1, h2, h3, h4, h5,p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+.home-bg {
+  min-height: 100vh;
+  display: flex;
+background-color:#742aa5;
+}
+.bg-primary {
+    background-color: #8542bc15 !important;
+    color: #ffffff;
+}

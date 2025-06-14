@@ -1,0 +1,142 @@
+<div class="container-fluid min-vh-100 home-bg d-flex flex-column justify-content-center align-items-center p-5">
+  
+  <!-- Introduction Section -->
+  <div class="text-center mb-4">
+   
+    <p class="lead text-muted mb-4">
+      I'm a full stack web developer with a passion for building innovative, responsive, and scalable web applications.
+      With a strong foundation in <strong>Angular</strong>, <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, 
+      <strong>Node.js</strong>, and <strong>databases</strong>, I bring ideas to life through clean code and creative problem-solving.
+      I also have a deep understanding of <strong>Java</strong>, <strong>C</strong>, <strong>C++</strong>, and <strong>data structures and algorithms (DSA)</strong>,
+      making me a versatile and dynamic developer.
+    </p>
+  
+  </div>
+
+  <!-- Navigation Tabs -->
+  <div class="card text-center w-100 mb-4" style="max-width: 900px;">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link" 
+             [class.active]="activeTab === 'skills'"
+             (click)="setActiveTab('skills')" aria-current="true">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" 
+             [class.active]="activeTab === 'education'"
+             (click)="setActiveTab('education')" aria-current="true">Education</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" 
+             [class.active]="activeTab === 'experience'"
+             (click)="setActiveTab('experience')" aria-current="true">Experience</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+      <div *ngIf="activeTab === 'skills'">
+        <h5 class="card-title"><h1>Skills</h1></h5>
+     <ul class="custom-list">
+  <li>
+    <b>Programming Languages</b>
+    <ul>
+      <li>Procedural Language: C Programming</li>
+      <li>Object Oriented Programming: C++ Programming, Java</li>
+      <li>Virtual Machine Based Programming: Java Programming</li>
+    </ul>
+  </li>
+</ul>
+   <ul class="custom-list">
+  <li>
+    <b>Web Technologies </b>
+    <ul>
+      <li>HTML/HTML5,CSS, JavaScript</li>
+    </ul>
+  </li>
+</ul>
+ <ul class="custom-list">
+  <li>
+    <b>IDE & Tools  </b>
+    <ul>
+      <li>Visual Studio Code </li>
+    </ul>
+  </li>
+</ul>
+<ul class="custom-list">
+  <li>
+    <b>Version Control  </b>
+    <ul>
+      <li>Git ,Github</li>
+    </ul>
+  </li>
+</ul>
+<ul class="custom-list">
+  <li>
+    <b>Operating System</b>
+    <ul>
+      <li>Windows</li>
+    </ul>
+  </li>
+</ul>
+<ul class="custom-list">
+  <li>
+    <b>JavaScript Libraries</b>
+    <ul>
+      <li>Angular,Bootstrap</li>
+    </ul>
+  </li>
+</ul>
+<ul class="custom-list">
+  <li>
+    <b>Tools and Technologies</b>
+    <ul>
+      <li>Angular CLI</li>
+    </ul>
+  </li>
+</ul>
+
+      </div>
+      <div *ngIf="activeTab === 'education'">
+        <h5 class="card-title"><h1>Education</h1></h5>
+       <div class="education-timeline">
+  <div class="timeline-item">
+    <div class="timeline-marker"></div>
+    <div class="timeline-content">
+      <b>Bachelor of Technology (B.Tech) - Computer Science</b>
+      <p>Sinhgad Institute of Technology ,Lonavala 2022-2026</p>
+      <p>Relevant Courses: Data Structures, Algorithms, Web Development</p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-marker"></div>
+    <div class="timeline-content">
+      <b>Higher Secondary (12th Grade) - Science</b>
+      <p>Arts and Science Collage ,takli Khatgaon, 2020-2022</p>
+      <p>Relevant Subjects: Physics, Chemistry, Mathematics, Biology</p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-marker"></div>
+    <div class="timeline-content">
+      <b>Secondary (10th Grade)</b>
+      <p>Kai Trimbkarav Korde Madhyamik Vidhyalaya ,Hiware Korda,2019-2020</p>
+      <p>Achieved excellent results in core subjects.</p>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div *ngIf="activeTab === 'experience'">
+        <h5 class="card-title">Experience</h5>
+        <p class="card-text">HTML, CSS, JavaScript, Angular, Tailwind, Node.js, Java, C, C++, DSA</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back Button -->
+  <button routerLink="/Home" target="_blank" class="btn btn-primary">Back</button>
+
+</div>

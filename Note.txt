@@ -1,0 +1,23 @@
+under src module:-  src means source code
+app navach folder- reperesent app navach module
+app navacha component --is considered as root component
+
+app.module.ts     ->  app module
+
+app.component.html   ->below four are  app component ->resposible for display something on sceen
+app.component.ts    --> responsible for good behaviour
+app.componenn.css -- ->resposible for beutiful purpose
+app.component.sepc.ts  ->responsible for Unit testing purpose
+
+root mhanje jya pasun aapan survat karto
+
+demo navacha project aahe tya madhe don mahatvach module tyar zale
+1.node_module
+2.src
+
+1.node_module:- project chya sarv dependencies store zalya aani libraries ,it is largest 
+2.src: arc madhe app navach module :-i.e app.module.ts  
+two nacked files first is index.html second one is main.ts starting of fronted and backend recpectively
+
+
+component:-

@@ -1,0 +1,15 @@
+.custom-list ul {
+  padding-left: 15px; /* Adjust as needed */
+  margin-left: 0;
+  list-style-type: disc;
+}
+
+.custom-list li {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.custom-list ul li {
+  text-indent: -15px;
+  margin-left: 15px;
+}

@@ -1,0 +1,17 @@
+<!-- src/app/components/project/project.component.html -->
+<div class="container my-5">
+  <h2 class="text-center mb-4">My Projects</h2>
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let project of projects">
+      <div class="card h-100 shadow-lg">
+        <img [src]="project.image" alt="{{project.title}}" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{project.title}}</h5>
+          <p class="card-text">{{project.description}}</p>
+          <a [href]="project.link" target="_blank" class="btn btn-primary">View Project</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<button routerLink="/Home" target="_blank" class="btn btn-primary">back</button>
