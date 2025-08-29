@@ -1,19 +1,30 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors')
+const bodyParser =  require('body-parser');
+const cors = require('cors');
 const path = require('path');
+const mongoose = require('mongoose');
+const api = require('./routes/api');//route file
 
-const api = require('./routes/api');
 const port = 3000;
 
-const app = express();
-app.use(cors())
-app.use(express.static(path.join(__dirname, 'dist')));
+const app = express(); //first initialize app
 
+app.use(cors());
+app.use(express.static(path.join(__dirname,'dist')));
 app.use(bodyParser.json()); 
+app.use(express.json()); 
 
-app.use('/api', api);
+mongoose.connect("mongodb://localhost:27017/Eventdb",
+    {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    }
+);
 
-app.listen(port, function(){
-    console.log("Marvellous Innfosystems : Server running on localhost:" + port);
-});
+//Register route
+app.use('/api',api)
+
+app.listen(port,function(){
+    console.log('Marvellous infosystem server running on localhost'+port);
+    
+})

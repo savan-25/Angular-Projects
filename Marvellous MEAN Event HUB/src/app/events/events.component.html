@@ -4,7 +4,7 @@
         <div class="card-body">
           <h5 class="card-title">{{event.name}}</h5>
           <p class="card-text">{{event.description}}</p>
-          <a href="#" class="btn btn-primary">Take Admission</a>
+          <a href="#" class="btn btn-primary" (click)="takeAdmission(event)">Take Admission</a>
         </div>
         <div class="card-footer text-muted">
           {{event.Teacher}}
@@ -12,3 +12,16 @@
       </div>
     </div>
   </div>
+
+
+  <!--  Below card ,show form only when event is Selected -->
+
+<div *ngIf="selectedEvent" class="mt-4">
+  <h4>Admission Form for {{selectedEvent.name}}</h4>
+  <form (ngSubmit)="submitAdmission()" #admissionForm="ngForm">
+    <input class="form-control mb-2" name="studentName" [(ngModel)]="admission.studentName" placeholder="Your Name" required />
+    <input class="form-control mb-2" name="email" [(ngModel)]="admission.email" placeholder="Email" required />
+    <input class="form-control mb-2" name="phone" [(ngModel)]="admission.phone" placeholder="Phone" />
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>

@@ -3,8 +3,9 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const User = require('../models/user');
 const jwt = require('jsonwebtoken')
-const db = "_________";
-
+const SECRETE_KEY = "savan25";
+const Signup = require('../models/registration');
+const { log } = require('@angular-devkit/build-angular/src/builders/ssr-dev-server');
 /*
 mongoose.connect(db, function(err){
     if(err){
@@ -119,19 +120,55 @@ router.get('/special', verifyToken, (req, res) => {
   res.json(specialEvents)
 })
 
-router.post('/login', (req, res) => {
-    let userData = req.body
+router.post('/login', async(req, res) => {
+    // let userData = req.body
     
-    if ((userData.email == "Marvellous123") && (userData.password == "Marvellous123")) 
+    // if ((userData.email == "Marvellous123") && (userData.password == "Marvellous123")) 
+    // {
+    //   let payload = {subject: 1}
+    //   let token = jwt.sign(payload, 'secretKey')
+    //   res.status(200).send({token})   
+    // } 
+    // else 
+    // {
+    //     res.status(401).send('Invalid Password')
+    // } 
+    const {email,password} = req.body;
+    const user = await User.findOne(({ email }));
+
+    if(!user || user.password !=password)
     {
-      let payload = {subject: 1}
-      let token = jwt.sign(payload, 'secretKey')
-      res.status(200).send({token})   
-    } 
-    else 
-    {
-        res.status(401).send('Invalid Password')
-    } 
+      return res.status(401).json({ message:'Invalid Credentials'});
+    }
+
+    const token = jwt.sign({userId:user._id,email:user.email,role:user.role},SECRETE_KEY,{expiresIn:'1h'});
+
+    res.json({
+      role : user.role,
+      message:"Login Successful"
+    })
 })
+router.post('/signup',async(req,res)=>
+{
+   console.log('Recived signup data',req,body);
+
+   const { name,email,phone,pass} = req.body;
+
+   try{
+    const existingUser = await User.find({ email });
+
+    if(existingUser)
+    {
+     return res.status(4000).json({ message: 'user already exists'});
+    }
+    const user = new user({ name,email,phone,pass });
+    await user.save();
+     }catch(err)
+   {
+     console.error('signup error',err.message);
+     res.status(400).send(err.message);
+   }
+   
+});
 
 module.exports = router;
